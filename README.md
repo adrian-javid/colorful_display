@@ -19,7 +19,7 @@ This project builds for Linux and [WebAssembly (WASM)](https://webassembly.org/)
 When building either for the native target or the website target, an `artifact` directory and a `build` directory are created. The `build` directory is for object files and dependency files. The compiled program is put into the `artifact` directory.
 
 
-When compiling for the web, another additional directory [`website/compiled`](website/compiled) is created if it doesn't already exist. The WebAssembly program is copied to here so that the webpage can use it.
+When compiling for the web, another additional directory [`website/generated`](website/generated) is created if it doesn't already exist. The WebAssembly program is copied to here so that the webpage can use it.
 
 ```sh
 # Compiles both the native target and the website target.
