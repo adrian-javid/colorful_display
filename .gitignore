@@ -3,3 +3,6 @@ artifact/
 
 # Directory with `make` dependency files and C++ object files.
 build/
+
+# files generated for website
+website/generated/

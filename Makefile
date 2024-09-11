@@ -16,7 +16,7 @@ BLD_DIR := build/${target}
 ART_DIR := artifact/${target}
 
 # directory for website content made by Emscripten
-WEB_DIR := website/compiled
+WEB_DIR := website/generated
 
 # object files
 OBJ_LIST := $(patsubst ${SRC_DIR}/%.cpp,${BLD_DIR}/%.o,$(wildcard ${SRC_DIR}/*.cpp))
