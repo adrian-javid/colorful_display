@@ -1,12 +1,8 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Website
+run-name: Deploy Website
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["release"]
-    paths: ["website/**"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -30,15 +26,32 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install Emscripten
+        run: |
+          sudo apt-get install git --yes
+          git clone https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+
+      - name: build WebAssembly program
+        run: |
+          source ./emsdk/emsdk_env.sh
+          make website
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload only the `website` directory
           path: './website/'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
