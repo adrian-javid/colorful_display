@@ -6,3 +6,6 @@ build/
 
 # files generated for website
 website/generated/
+
+# Visual Studio Code configuration files
+.vscode/
