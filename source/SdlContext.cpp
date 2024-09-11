@@ -5,6 +5,7 @@
 #include "SdlContext.hpp"
 #include "HslaColor.hpp"
 #include <limits>
+#include <cstdint>
 
 namespace Project::SdlContext {
     SDL_Window *window = nullptr;
